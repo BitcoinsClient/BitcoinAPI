@@ -1,6 +1,0 @@
-name: BitcoinAPI Plugin
-version: '${project.version}'
-main: de.bitcoinclient.bitcoinapiplugin.BitcoinAPI
-api-version: 1.19
-authors: [ BitcoinClient ]
-description: API von BitcoinClient

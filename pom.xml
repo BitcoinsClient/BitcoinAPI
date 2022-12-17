@@ -17,17 +17,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>BitcoinAPI.write</id>
-            <url>https://mymavenrepo.com/repo/cjGvPCdJSzHl4WstYtGs/</url>
-        </repository>
-        <snapshotRepository>
-            <id>BitcoinAPI.write</id>
-            <url>https://mymavenrepo.com/repo/cjGvPCdJSzHl4WstYtGs/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <build>
         <plugins>
             <plugin>

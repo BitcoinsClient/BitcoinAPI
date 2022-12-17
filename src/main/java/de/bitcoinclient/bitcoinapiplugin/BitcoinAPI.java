@@ -14,10 +14,6 @@ public final class BitcoinAPI extends JavaPlugin {
         Bukkit.broadcastMessage("Bitcoin API wurde aktiviert!");
         Bukkit.broadcastMessage("Version: " + getVersion());
         Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage("BackEnd Infos: ");
-        Bukkit.broadcastMessage("API Version: " + HttpUtil.requestAPIVersion());
-        Bukkit.broadcastMessage("API Plugin Version: " + HttpUtil.requestPluginVersion());
-        Bukkit.broadcastMessage(" ");
         Bukkit.broadcastMessage(" ");
     }
 

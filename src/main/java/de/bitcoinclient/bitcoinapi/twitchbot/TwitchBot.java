@@ -49,7 +49,7 @@ public abstract class TwitchBot {
 
     public abstract void things();
 
-    public TwitchBot build() {
+    public void build() {
         twitchClient = TwitchClientBuilder.builder()
                 .withEnableHelix(helix)
                 .withDefaultEventHandler(SimpleEventHandler.class)
@@ -59,7 +59,6 @@ public abstract class TwitchBot {
                 .build();
 
         built = true;
-        return null;
     }
 
     public TwitchClient getClient() {

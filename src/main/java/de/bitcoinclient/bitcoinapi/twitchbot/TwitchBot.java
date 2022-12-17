@@ -4,31 +4,32 @@ import com.github.philippheuer.credentialmanager.domain.OAuth2Credential;
 import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.TwitchClient;
 import com.github.twitch4j.TwitchClientBuilder;
-import de.bitcoinclient.bitcoinapi.twitchbot.events.ChatEvent;
 
 public abstract class TwitchBot {
 
-    private TwitchClient twitchClient;
-    private String ACCESS_TOKEN;
-    private String getChannelId;
-    private boolean helix = true;
-    private boolean chat = true;
+    protected TwitchClient twitchClient;
+    protected final String ACCESS_TOKEN;
+    protected final String getChannelId;
+    protected boolean helix = true;
+    protected boolean chat = true;
 
-    private boolean built = false;
+    protected boolean built = false;
 
-    private String commandPrefix = "!";
+    protected String commandPrefix = "!";
 
-    public TwitchBot() {
+    public TwitchBot(String accessToken, String getChannelId) {
+        ACCESS_TOKEN = accessToken;
+        this.getChannelId = getChannelId;
         things();
     }
 
     public TwitchBot setACCESS_TOKEN(String ACCESS_TOKEN) {
-        this.ACCESS_TOKEN = ACCESS_TOKEN;
+        ACCESS_TOKEN = ACCESS_TOKEN;
         return null;
     }
 
     public TwitchBot setCommandPrefix(String commandPrefix) {
-        this.commandPrefix = commandPrefix;
+        commandPrefix = commandPrefix;
         return null;
     }
 
@@ -43,7 +44,7 @@ public abstract class TwitchBot {
     }
 
     public void setChannelId(String getChannelId) {
-        this.getChannelId = getChannelId;
+        getChannelId = getChannelId;
     }
 
     public abstract void things();

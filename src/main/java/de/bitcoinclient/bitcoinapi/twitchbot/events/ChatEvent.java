@@ -2,6 +2,7 @@ package de.bitcoinclient.bitcoinapi.twitchbot.events;
 
 import com.github.twitch4j.chat.events.channel.ChannelMessageEvent;
 import de.bitcoinclient.bitcoinapi.BitcoinAPI;
+import de.bitcoinclient.bitcoinapi.twitchbot.CommandManager;
 import de.bitcoinclient.bitcoinapi.twitchbot.TwitchBot;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -13,6 +14,14 @@ public class ChatEvent {
             if(cooldown) {
                 return;
             }
+
+            String message = event.getMessage();
+
+            if(!CommandManager.commands.containsKey(twitchBot.getCommandPrefix() + message)) {
+                return;
+            }
+
+            event.reply(event.getTwitchChat(), CommandManager.getCommandMessage(message));
 
             new BukkitRunnable() {
                 @Override

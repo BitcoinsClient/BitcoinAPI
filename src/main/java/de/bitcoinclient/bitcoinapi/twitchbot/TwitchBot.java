@@ -4,8 +4,9 @@ import com.github.philippheuer.credentialmanager.domain.OAuth2Credential;
 import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.TwitchClient;
 import com.github.twitch4j.TwitchClientBuilder;
+import de.bitcoinclient.bitcoinapi.twitchbot.events.ChatEvent;
 
-public class TwitchBot {
+public abstract class TwitchBot {
 
     private static TwitchClient twitchClient;
     private static String ACCESS_TOKEN;
@@ -15,8 +16,15 @@ public class TwitchBot {
 
     private static boolean built = false;
 
+    private static String commandPrefix = "!";
+
     public static TwitchBot setACCESS_TOKEN(String ACCESS_TOKEN) {
         TwitchBot.ACCESS_TOKEN = ACCESS_TOKEN;
+        return null;
+    }
+
+    public static TwitchBot setCommandPrefix(String commandPrefix) {
+        TwitchBot.commandPrefix = commandPrefix;
         return null;
     }
 
@@ -61,5 +69,9 @@ public class TwitchBot {
 
     public static boolean isBuilt() {
         return built;
+    }
+
+    public static String getCommandPrefix() {
+        return commandPrefix;
     }
 }

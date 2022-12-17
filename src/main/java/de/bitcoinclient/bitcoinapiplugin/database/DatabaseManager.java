@@ -2,7 +2,7 @@ package de.bitcoinclient.bitcoinapiplugin.database;
 
 public class DatabaseManager {
 
-    public static DatabaseManager addDatabase(CreateConnection connection, String databaseName) {
+    public static DatabaseManager setDatabase(CreateConnection connection, String databaseName) {
         if(!connection.isConnected()) {
             return null;
         }

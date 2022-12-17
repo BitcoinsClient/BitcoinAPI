@@ -8,41 +8,47 @@ import de.bitcoinclient.bitcoinapi.twitchbot.events.ChatEvent;
 
 public abstract class TwitchBot {
 
-    private static TwitchClient twitchClient;
-    private static String ACCESS_TOKEN;
-    private static String getChannelId;
-    private static boolean helix = true;
-    private static boolean chat = true;
+    private TwitchClient twitchClient;
+    private String ACCESS_TOKEN;
+    private String getChannelId;
+    private boolean helix = true;
+    private boolean chat = true;
 
-    private static boolean built = false;
+    private boolean built = false;
 
-    private static String commandPrefix = "!";
+    private String commandPrefix = "!";
 
-    public static TwitchBot setACCESS_TOKEN(String ACCESS_TOKEN) {
-        TwitchBot.ACCESS_TOKEN = ACCESS_TOKEN;
+    public TwitchBot() {
+        things();
+    }
+
+    public TwitchBot setACCESS_TOKEN(String ACCESS_TOKEN) {
+        this.ACCESS_TOKEN = ACCESS_TOKEN;
         return null;
     }
 
-    public static TwitchBot setCommandPrefix(String commandPrefix) {
-        TwitchBot.commandPrefix = commandPrefix;
+    public TwitchBot setCommandPrefix(String commandPrefix) {
+        this.commandPrefix = commandPrefix;
         return null;
     }
 
-    public static TwitchBot setHelix(boolean enabled) {
+    public TwitchBot setHelix(boolean enabled) {
         helix = enabled;
         return null;
     }
 
-    public static TwitchBot setChat(boolean enabled) {
+    public TwitchBot setChat(boolean enabled) {
         chat = enabled;
         return null;
     }
 
-    public static void setChannelId(String getChannelId) {
-        TwitchBot.getChannelId = getChannelId;
+    public void setChannelId(String getChannelId) {
+        this.getChannelId = getChannelId;
     }
 
-    public static TwitchBot build() {
+    public abstract void things();
+
+    public TwitchBot build() {
         twitchClient = TwitchClientBuilder.builder()
                 .withEnableHelix(helix)
                 .withDefaultEventHandler(SimpleEventHandler.class)
@@ -55,23 +61,23 @@ public abstract class TwitchBot {
         return null;
     }
 
-    public static TwitchClient getClient() {
+    public TwitchClient getClient() {
         return twitchClient;
     }
 
-    public static String getAccessToken() {
+    public String getAccessToken() {
         return ACCESS_TOKEN;
     }
 
-    public static String getChannelId() {
+    public String getChannelId() {
         return getChannelId;
     }
 
-    public static boolean isBuilt() {
+    public boolean isBuilt() {
         return built;
     }
 
-    public static String getCommandPrefix() {
+    public String getCommandPrefix() {
         return commandPrefix;
     }
 }

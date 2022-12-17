@@ -20,7 +20,6 @@ public abstract class TwitchBot {
     public TwitchBot(String accessToken, String getChannelId) {
         ACCESS_TOKEN = accessToken;
         this.getChannelId = getChannelId;
-        things();
     }
 
     public TwitchBot setACCESS_TOKEN(String ACCESS_TOKEN) {
@@ -46,8 +45,6 @@ public abstract class TwitchBot {
     public void setChannelId(String getChannelId) {
         getChannelId = getChannelId;
     }
-
-    public abstract void things();
 
     public void build() {
         twitchClient = TwitchClientBuilder.builder()

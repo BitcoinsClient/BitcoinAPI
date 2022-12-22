@@ -8,6 +8,8 @@ public final class BitcoinAPI extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+
         Bukkit.broadcastMessage(" ");
         Bukkit.broadcastMessage(" ");
         Bukkit.broadcastMessage("Bitcoin API wurde aktiviert!");
@@ -19,6 +21,8 @@ public final class BitcoinAPI extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
+
         Bukkit.broadcastMessage(" ");
         Bukkit.broadcastMessage(" ");
         Bukkit.broadcastMessage("Bitcoin API wurde deaktiviert!");

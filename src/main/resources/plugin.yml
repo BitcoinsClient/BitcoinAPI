@@ -1,6 +1,12 @@
-name: BitcoinAPI Plugin
+name: BitcoinAPI
 version: '${project.version}'
-main: de.bitcoinclient.bitcoinapiplugin.BitcoinAPI
+main: de.bitcoinclient.BitcoinAPI
 api-version: 1.19
 authors: [ BitcoinClient ]
 description: API von BitcoinClient
+commands:
+  stop:
+    permission: bitcoinapi.command.stop
+  gamemode:
+    aliases: [gm]
+    permission:
